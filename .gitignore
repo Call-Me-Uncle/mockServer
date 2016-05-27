@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+.idea
+server/debug
+logs
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
