@@ -25,5 +25,5 @@ app.on('error', (err) => {
 });
 // Start server
 app.listen(8090, () => {
-  console.log('Koa server listening on 80');
+  console.log('Koa server listening on 8090');
 });
