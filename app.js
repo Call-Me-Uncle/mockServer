@@ -24,6 +24,6 @@ app.on('error', (err) => {
   console.log('error', err);
 });
 // Start server
-app.listen(80, () => {
+app.listen(8090, () => {
   console.log('Koa server listening on 80');
 });
