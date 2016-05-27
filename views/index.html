@@ -6,6 +6,16 @@
     <script src="jquery.min.js" charset="utf-8"></script>
   </head>
   <body>
-    mockMan
+    <button type="button" name="button">登录</button>
+    <script type="text/javascript">
+
+      $('button').click(function(){
+        $.post("/user?type=usv003",{
+          query:{vcode:'1234'},
+        },function(data,status){
+          console.log(data);
+        });
+      });
+    </script>
   </body>
 </html>

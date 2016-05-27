@@ -12,7 +12,7 @@ const routers = require('./routers');
 app.use(stac('./public'));
 app.use(bodyParser());
 app.use(hbs.middleware({
-  viewPath: `./views`,
+  viewPath: './views',
   extname: '.html',
 }));
 app.use(responseTime());
