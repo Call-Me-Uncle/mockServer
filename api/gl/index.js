@@ -9,7 +9,7 @@ router.post('/', function * () {
   	 this.body = {
   	    error:{
   		    err_id : 0,
-  		    msg : ''
+  		    error_str : ''
   	          },
   	    data: {
             update: 1,
@@ -25,7 +25,7 @@ router.post('/', function * () {
   	this.body = {
   		error:{
   			err_id :0,
-  			msg: ''
+  			error_str: ''
   		},
   		data: {
   			jid:'qinguangyu@120.132.66.186/service',

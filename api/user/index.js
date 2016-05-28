@@ -9,7 +9,7 @@ router.post('/', function * () {
   	 this.body = {
   	    error:{
   		    err_id : 0,
-  		    msg : ''
+  		    error_str : ''
   	          },
   	    data: {
                code :'1234'
@@ -22,7 +22,7 @@ router.post('/', function * () {
   	this.body = {
   		error:{
   			err_id :0,
-  			msg: ''
+  			error_str: ''
   		},
   		data: {
   			uid:'s1',
@@ -36,7 +36,7 @@ router.post('/', function * () {
     this.body = {
       error:{
         err_id :1,
-        msg: 'vcode is wrong'
+        error_str: 'vcode is wrong'
       },
       data: {
 
@@ -50,7 +50,7 @@ router.post('/', function * () {
       this.body = {
       error:{
         err_id :0,
-        msg: ''
+        error_str: ''
       },
       data: {
         uid:'qinguangyu',
@@ -67,7 +67,7 @@ router.post('/', function * () {
     this.body = {
       error:{
         err_id :0,
-        msg: ''
+        error_str: ''
       },
       data: {
         tripInfo:{},
