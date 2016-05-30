@@ -46,6 +46,7 @@ router.post('/', function * () {
   }
   else if(id == 'usv002')
   {
+    var usename = info.query.account;
 
       this.body = {
       error:{
@@ -53,11 +54,11 @@ router.post('/', function * () {
         error_str: ''
       },
       data: {
-        uid:'qinguangyu',
+        uid:`${usename}`,
         token:'helloworld',
         avator:'',
-        nickname:'guangyu',
-        jid:'qinguangyu@120.132.66.186/service',
+        nickname:`${username}`,
+        jid:`${username}@120.132.66.186/service`,
         jwd:'123456'
       }
     };
