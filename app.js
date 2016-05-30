@@ -1,5 +1,6 @@
 process.env.root = __dirname;
 const app = require('koa')();
+const cors = require('koa-cors');
 const hbs = require('koa-hbs');
 const stac = require('koa-static');
 const bodyParser = require('koa-bodyparser');
@@ -9,6 +10,7 @@ const responseTime = require('koa-response-time');
 
 const routers = require('./routers');
 
+app.use(cors());
 app.use(stac('./public'));
 app.use(bodyParser());
 app.use(hbs.middleware({
