@@ -4,8 +4,9 @@ router.post('/', function * () {
 
   var info = this.request.body;
   var id = this.query.type;
+  var cmuuid = info.cmuuid;
   if (id =='gcm001') {
-    var cmuuid = info.cmuuid;
+
   	 this.body = {
   	    error:{
   		    err_id : 0,
@@ -22,13 +23,18 @@ router.post('/', function * () {
   	      };
   }
   else if(id =='gcm002'){
+    let serviceJid = 'qinguangyu@120.132.66.186/service';
+    if(cmuuid !== '5DCC0E23-FAAB-4BBD-BD1D-952E9B2EC49D'){
+      serviceJid = 's2@120.132.66.186/service'
+    }
+
   	this.body = {
   		error:{
   			err_id :0,
   			error_str: ''
   		},
   		data: {
-  			jid:'qinguangyu@120.132.66.186/service',
+  			jid: serviceJid,
   			avator :'',
   			nickname :'guangyu',
   			no :'001',
