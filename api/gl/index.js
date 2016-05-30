@@ -9,7 +9,7 @@ router.post('/', function * () {
 
   	 this.body = {
   	    error:{
-  		    err_id : 0,
+  		    error_str : 0,
   		    error_str : ''
   	          },
   	    data: {
@@ -30,7 +30,7 @@ router.post('/', function * () {
 
   	this.body = {
   		error:{
-  			err_id :0,
+  			error_str :0,
   			error_str: ''
   		},
   		data: {

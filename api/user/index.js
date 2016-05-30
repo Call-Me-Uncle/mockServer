@@ -8,7 +8,7 @@ router.post('/', function * () {
 
   	 this.body = {
   	    error:{
-  		    err_id : 0,
+  		    error_str : 0,
   		    error_str : ''
   	          },
   	    data: {
@@ -21,7 +21,7 @@ router.post('/', function * () {
     if(vcode =='1234'){
   	this.body = {
   		error:{
-  			err_id :0,
+  			error_str :0,
   			error_str: ''
   		},
   		data: {
@@ -35,7 +35,7 @@ router.post('/', function * () {
   else{
     this.body = {
       error:{
-        err_id :1,
+        error_str :1,
         error_str: 'vcode is wrong'
       },
       data: {
@@ -51,7 +51,7 @@ router.post('/', function * () {
 
       this.body = {
       error:{
-        err_id :0,
+        error_str :0,
         error_str: ''
       },
       data: {
@@ -70,7 +70,7 @@ router.post('/', function * () {
   {
     this.body = {
       error:{
-        err_id :0,
+        error_str :0,
         error_str: ''
       },
       data: {
