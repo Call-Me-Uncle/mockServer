@@ -48,7 +48,10 @@ router.post('/', function * () {
   {
 
       var username = info.query.account;
-
+      var jwd = '123456'
+      if(username == 's2'){
+        jwd = '699272';
+      }
       this.body = {
       error:{
         error_id :0,
@@ -62,7 +65,7 @@ router.post('/', function * () {
         nickname:username,
 
         jid:`${username}@120.132.66.186/service`,
-        jwd:'123456'
+        jwd:jwd
       }
     };
   }
