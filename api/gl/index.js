@@ -24,7 +24,7 @@ router.post('/', function * () {
   }
   else if(id =='gcm002'){
     let serviceJid = 'qinguangyu@120.132.66.186/service';
-    if(cmuuid !== '5DCC0E23-FAAB-4BBD-BD1D-952E9B2EC49D'){
+    if(cmuuid !== 'C2392D21-1E07-4E8F-839C-5019820550CD'){
       serviceJid = 's2@120.132.66.186/service'
     }
 
