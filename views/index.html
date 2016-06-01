@@ -11,6 +11,7 @@
 
       $('button').click(function(){
         $.post("/user?type=usv003",{
+          token:'s2',
           query:{vcode:'1234'},
         },function(data,status){
           console.log(data);

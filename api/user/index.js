@@ -49,9 +49,6 @@ router.post('/', function * () {
 
       var username = info.query.account;
       var jwd = '123456'
-      if(username == 's2'){
-        jwd = '699272';
-      }
       this.body = {
       error:{
         error_id :0,
@@ -60,7 +57,7 @@ router.post('/', function * () {
       data: {
 
         uid: username,
-        token:'helloworld',
+        token: username,
         avator:'',
         nickname:username,
 
@@ -69,7 +66,7 @@ router.post('/', function * () {
       }
     };
   }
-  else if(id =='usv003')
+  else if(id =='usv004')
   {
     this.body = {
       error:{
@@ -82,5 +79,37 @@ router.post('/', function * () {
       }
     };
   }
+  else if(id =='usv003')
+  {
+    var username = info.token;
+    this.body = {
+          error:{
+            error_id :0,
+            error_str: ''
+      },
+          data: {
+
+            uid: username,
+            token: username,
+            avator:'',
+            nickname:username,
+
+            jid:`${username}@120.132.66.186/service`,
+            jwd:'123456'
+            }
+
+
+
+    };
+
+  }
+
+
+
+
+
+
+
+ 
 });
 module.exports = router;
