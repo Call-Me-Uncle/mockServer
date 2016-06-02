@@ -4,10 +4,10 @@ let error = {
   error_str: ''
 }
 router.post('/', function * () {
-
   let id =this.query.type;
   let info = this.request.body;
   let res = dealApi[id].call(this,info);
+  
   this.body = res;
 });
 module.exports = router;
@@ -41,7 +41,7 @@ const dealApi = {
       ],
       say: 'javascript是世界上最好的服务器'
     };
-    this.body = {
+    return {
       data: {
         list: [data, data, data]
       },
