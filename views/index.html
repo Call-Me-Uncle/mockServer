@@ -10,8 +10,8 @@
     <script type="text/javascript">
 
       $('button').click(function(){
-        $.post("/city?type=csv002",{
-          token:'s2',
+        $.post("/global?type=gcm001",{
+          cmuid:'visitor',
           query:{vcode:'1234'},
         },function(data,status){
           console.log(data);
