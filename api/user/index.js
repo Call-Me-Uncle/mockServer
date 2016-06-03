@@ -12,13 +12,13 @@ router.post('/', function * () {
   		    error_str : ''
   	          },
   	    data: {
-               code :'1234'
+               code :'123456'
               }
   	      };
   }
   else if(id =='ucm002'){
     var vcode = info.query.vcode;
-    if(vcode =='1234'){
+    if(vcode =='123456'){
   	this.body = {
   		error:{
   			error_id :0,
@@ -28,7 +28,7 @@ router.post('/', function * () {
   			uid:'s1',
   			token:'helloworld',
         jid:'s1@120.132.66.186/user',
-        jwd:'125091'
+        jwd:'123456'
   		}
   	};
   }
