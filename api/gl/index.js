@@ -7,11 +7,14 @@ router.post('/', function * () {
   var cmuuid = info.cmuuid;
   var username = info.cmuid;
   if (id =='gcm001') {
-
-  if(username == 'visitor')
-    {var jwd = 'visitor'}
-  else{
-    var jwd = '123456'
+  var jwd;
+  if(!username)
+    {
+      username ='visitor',
+      jwd = 'visitor'}
+  else {
+    jwd = '123456',
+    cmuuid = 'user'
   }
   	 this.body = {
   	    error:{
