@@ -6,6 +6,7 @@ router.post('/', function * () {
   var id = this.request.body.type;
   var cmuuid = info.cmuuid;
   var username = info.cmuid;
+  info.query && info.query = JSON.parse(info.query);
   if (id =='gcm001') {
   var jwd;
   if(!username)
