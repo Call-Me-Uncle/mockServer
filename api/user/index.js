@@ -4,7 +4,8 @@ router.post('/', function * () {
 
   var id =this.request.body.type;
   var info = this.request.body;
-  info.query && info.query = JSON.parse(info.query);
+  // info.query && info.query = JSON.parse(info.query);
+  info.query = info.query ? JSON.parse(info.query) : info.query;
   if (id =='ucm001') {
 
   	 this.body = {

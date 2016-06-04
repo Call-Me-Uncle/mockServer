@@ -7,7 +7,8 @@ router.post('/', function * () {
   let id =this.request.body.type;
   let info = this.request.body;
   let res = dealApi[id].call(this,info);
-  info.query && info.query = JSON.parse(info.query);
+  // info.query && info.query = JSON.parse(info.query);
+  info.query = info.query ? JSON.parse(info.query) : info.query;
   this.body = res;
 });
 module.exports = router;
