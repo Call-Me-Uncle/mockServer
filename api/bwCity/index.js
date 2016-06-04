@@ -4,10 +4,10 @@ let error = {
   error_str: ''
 }
 router.post('/', function * () {
-  let id =this.query.type;
+  let id =this.request.body.type;
   let info = this.request.body;
   let res = dealApi[id].call(this,info);
-  
+
   this.body = res;
 });
 module.exports = router;

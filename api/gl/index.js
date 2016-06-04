@@ -3,7 +3,7 @@ const router = require('koa-router')();
 router.post('/', function * () {
 
   var info = this.request.body;
-  var id = this.query.type;
+  var id = this.request.body.type;
   var cmuuid = info.cmuuid;
   var username = info.cmuid;
   if (id =='gcm001') {

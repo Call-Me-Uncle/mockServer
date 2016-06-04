@@ -2,7 +2,7 @@ const router = require('koa-router')();
 
 router.post('/', function * () {
 
-  var id =this.query.type;
+  var id =this.request.body.type;
   var info = this.request.body;
   if (id =='ucm001') {
 
@@ -157,8 +157,8 @@ router.post('/', function * () {
           {
                 "cid":"20001",
                 "cnid":"101",
-                "arvTime":"20160728_18:00",              
-                "arvPoi":"BCN", 
+                "arvTime":"20160728_18:00",
+                "arvPoi":"BCN",
                 "deptTime":"20160729_02:30",
                 "deptPoi":"BCN",
                 "trafficRange":{
@@ -172,7 +172,7 @@ router.post('/', function * () {
                     "type":0,
                     "dur":53100,
                     "price":3456,
-                    "score":9.5,  
+                    "score":9.5,
                     "disable":0,
                     "stat":0,
                     "tickets":[
@@ -180,41 +180,41 @@ router.post('/', function * () {
                             "type":0,
                             "price":3456,
                             "realPrice":{
-                                   "val":3456,       
+                                   "val":3456,
                                    "ccy":"CNY"
-                                
-                            }, 
+
+                            },
                             "mode":"flight",
                             "src":"mango",
                             "section":[
                                 {
                                     "corp":"俄罗斯航空",
-                                    "corpId":"SU", 
+                                    "corpId":"SU",
                                     "no":"SU201",
                                     "dur":28800,
                                     "transTime":7800,
                                     "cls":"经济舱",
                                     "clsId":"1",
-                                    
-                                    "dept":{ 
-                                        "time":"20160729_02:30",    
+
+                                    "dept":{
+                                        "time":"20160729_02:30",
                                         "id":"PEK",
                                         "name":"首都国际机场",
                                         "city":"北京",
                                         "cid":"20001",
                                         "terminal":"",
-                                        "terminalId":"",   
+                                        "terminalId":"",
                                     },
-                                    "dest":{ 
+                                    "dest":{
                                         "time":"20160729_05:30",
-                                        "id":"SVO",   
+                                        "id":"SVO",
                                         "name":"谢列蔑契娃机场",
                                         "city":"莫斯科",
                                         "cid":"10487",
                                         "terminal":"",
                                         "terminalId":"",
                                     },
-                                   
+
                                 },
                                 {
                                     "corp":"俄罗斯航空",
@@ -224,7 +224,7 @@ router.post('/', function * () {
                                     "transTime":null,
                                     "cls":"经济舱",
                                     "clsId":"1",
-                                    
+
                                     "dept":{
                                         "time":"20160729_07:40",
                                         "id":"SVO",
@@ -233,25 +233,25 @@ router.post('/', function * () {
                                         "cid":"10487",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
-                                    "dest":{ 
+                                    "dest":{
                                         "time":"20160729_11:15",
-                                        "id":"BCN", 
+                                        "id":"BCN",
                                         "name":"巴塞罗那机场",
                                         "city":"巴塞罗那",
                                         "cid":"10006",
                                         "terminal":"",
-                                        "terminalId":"" 
+                                        "terminalId":""
                                     },
-                                   
+
                                 }
                             ],
                         }
                     ]
                 },
-                "prefer":null,  
-                "view":null   
+                "prefer":null,
+                "view":null
           },
 
           {     "cid":"10006",
@@ -272,11 +272,11 @@ router.post('/', function * () {
                         "id":"ht20013659",
                         "star":4,
                         "checkin":"20160729",
-                        "checkout":"20160802",     
+                        "checkout":"20160802",
                         "room":[
                             {
                                 "id":{"checkin":"20160729","checkout":"20160802","md5":"32045cc810a247c2","need":1,"norm_room":"双人房","occ":2,"source":"agoda","uid":"ht20013659"},
-                                "type":"双人房", 
+                                "type":"双人房",
                                 "occ":2,
                                 "num":1,
                                 "price":710,
@@ -284,15 +284,15 @@ router.post('/', function * () {
                                     "val":107.833,
                                     "ccy":"USD",
                                 },
-                                
+
                             }
                         ],
                         "totalPrice":3548,
                         "stat":0,
-                        "disable":0    
+                        "disable":0
                     }
                 ],
-               
+
                 "traffic":{
                     "id":[{"deptcity":"10006","deptdate":"20160803","deptid":"BCN","destcity":"10046","destid":"MRS","md5":"a9232db09c9ad4f6","mode":"flight","source":"cheaptickets"}],
                     "type":0,
@@ -320,7 +320,7 @@ router.post('/', function * () {
                                     "transTime":null,
                                     "cls":"经济舱",
                                     "clsId":"1",
-              
+
                                     "dept":{
                                         "time":"20160803_09:50",
                                         "id":"BCN",
@@ -329,35 +329,35 @@ router.post('/', function * () {
                                         "cid":"10006",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
                                     "dest":{
                                         "time":"20160803_10:55",
-                                        "id":"MRS", 
+                                        "id":"MRS",
                                         "name":"马赛机场",
                                         "city":"马赛",
                                         "cid":"10046",
                                         "terminal":"",
-                                        "terminalId":"",   
+                                        "terminalId":"",
                                     },
-                                    
+
                                 }
                             ],
-                            
-                            
+
+
                         }
                     ]
                 },
-                "prefer":{ 
+                "prefer":{
                     "timeRange":{
                         "from":"09:00",
                         "to":"20:00"
                     },
                     "intensity":2,
-                 
+
                      "shopping":{
                         "prefer":0,
-                     
+
                     },
                     "restaurant":[
                         0,1
@@ -1141,7 +1141,7 @@ router.post('/', function * () {
                         "trafficPer":8
                     }
                 }
-            
+
           },
 
           {
@@ -1164,7 +1164,7 @@ router.post('/', function * () {
                         "star":3,
                         "checkin":"20160803",
                         "checkout":"20160806",
-                     
+
                         "room":[
                             {
                                 "id":{"checkin":"20160803","checkout":"20160806","md5":"c744476645086ad3","need":1,"norm_room":"双人房","occ":2,"source":"booking","uid":"ht30281123"},
@@ -1175,20 +1175,20 @@ router.post('/', function * () {
                                 "realPrice":{
                                     "val":412.25,
                                     "ccy":"CNY",
-                                    
+
                                 },
-                                
+
                             }
                         ],
 
                         "totalPrice":1649,
                         "stat":0,
                         "disable":0,
-                        
+
                     }
                 ],
-              
-               
+
+
                 "traffic":{
                     "id":[{"deptcity":"10046","deptdate":"20160807","deptid":"stt100053","destcity":"10048","destid":"stt100115","md5":"f264ab2801a65db4","mode":"train","source":"raileurope"}],
                     "type":0,
@@ -1201,10 +1201,10 @@ router.post('/', function * () {
                         {
                             "type":"法国TGV高速列车",
                             "price":157,
-                            "realPrice":{ 
+                            "realPrice":{
                                 "val":157,
                                 "ccy":"CNY",
-                               
+
                             },
                             "mode":"train",
                             "src":"raileurope",
@@ -1217,7 +1217,7 @@ router.post('/', function * () {
                                     "transTime":-1,
                                     "cls":"",
                                     "clsId":"0",
-                                    
+
                                     "dept":{
                                         "time":"20160807_07:14",
                                         "id":"stt100053",
@@ -1226,7 +1226,7 @@ router.post('/', function * () {
                                         "cid":"10046",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
                                     "dest":{
                                         "time":"20160807_08:50",
@@ -1236,8 +1236,8 @@ router.post('/', function * () {
                                         "cid":"10048",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
-                                    },                              
+
+                                    },
                                 }
                             ],
                         }
@@ -1248,14 +1248,14 @@ router.post('/', function * () {
                         "from":"09:00",
                         "to":"20:00"
                     },
-                
+
                     "intensity":2,
-                    
+
                     "shopping":{
                         "prefer":0,
-                      
+
                     },
-                    
+
                     "restaurant":[
                         0,
                         1
@@ -2603,9 +2603,9 @@ router.post('/', function * () {
                                 "realPrice":{
                                     "val":66,
                                     "ccy":"USD",
-                                    
+
                                 },
-                                
+
                             }
                         ],
                         "totalPrice":868,
@@ -2613,8 +2613,8 @@ router.post('/', function * () {
                         "disable":0,
                     }
                 ],
-                
-                
+
+
                 "traffic":{
                     "id":[{"deptcity":"10048","deptdate":"20160809","deptid":"LYS","destcity":"20001","destid":"PEK","md5":"796a12b94255e73f","mode":"flight","source":"omega"}],
                     "type":0,
@@ -2623,17 +2623,17 @@ router.post('/', function * () {
                     "score":5,
                     "disable":0,
                     "stat":0,
-                
+
                     "tickets":[
                         {
                             "type":0,
-                           
+
                             "price":3210,
                             "realPrice":{
-                                
+
                                 "val":332.20001220703,
                                 "ccy":"GBP",
-                            }, 
+                            },
                             "mode":"flight",
                             "src":"omega",
                             "section":[
@@ -2645,7 +2645,7 @@ router.post('/', function * () {
                                     "transTime":12300,
                                     "cls":"经济舱",
                                     "clsId":"1",
-                                    
+
                                     "dept":{
                                         "time":"20160809_18:20",
                                         "id":"LYS",
@@ -2654,19 +2654,19 @@ router.post('/', function * () {
                                         "cid":"10048",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
                                     "dest":{
                                         "time":"20160809_22:30",
                                         "id":"IST",
-                                        "name":"伊斯坦布尔机场", 
+                                        "name":"伊斯坦布尔机场",
                                         "city":"伊斯坦布尔",
                                         "cid":"10605",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
-                                 
+
                                 },
                                 {
                                     "corp":"土耳其航空",
@@ -2681,10 +2681,10 @@ router.post('/', function * () {
                                         "id":"IST",
                                         "name":"伊斯坦布尔机场",
                                         "city":"伊斯坦布尔",
-                                        "cid":"10605",                                
+                                        "cid":"10605",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
                                     "dest":{
                                         "time":"20160810_15:55",
@@ -2694,10 +2694,10 @@ router.post('/', function * () {
                                         "cid":"20001",
                                         "terminal":"",
                                         "terminalId":"",
-                                        
+
                                     },
                                 }
-                            ],  
+                            ],
                         }
                     ]
                 },
@@ -2706,14 +2706,14 @@ router.post('/', function * () {
                         "from":"09:00",
                         "to":"20:00"
                     },
-                  
+
                     "intensity":2,
-                    
+
                     "shopping":{
                         "prefer":0,
-                        
+
                     },
-                    
+
                     "restaurant":[
                         0,
                         1
@@ -3298,7 +3298,6 @@ router.post('/', function * () {
       }
     };
   }
- 
 
 
 
@@ -3306,6 +3305,7 @@ router.post('/', function * () {
 
 
 
- 
+
+
 });
 module.exports = router;
