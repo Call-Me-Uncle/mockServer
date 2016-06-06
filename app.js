@@ -21,7 +21,6 @@ app.use(responseTime());
 app.use(logger());
 routers(app);
 
-
 app.on('error', (err) => {
   console.log('error', err);
 });

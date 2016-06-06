@@ -21,6 +21,7 @@
     "nodemon": "^1.9.2"
   },
   "dependencies": {
+    "bunyan": "^1.8.1",
     "koa": "^1.2.0",
     "koa-bodyparser": "^2.2.0",
     "koa-cors": "^0.0.16",

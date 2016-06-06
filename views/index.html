@@ -10,9 +10,9 @@
     <script type="text/javascript">
 
       $('button').click(function(){
-        $.post("/global?type=gcm001",{
+        $.post("/global",{
           cmuid:'s1',
-          query:{vcode:'1234'},
+          query:JSON.stringify({vcode:'1234'}),
         },function(data,status){
           console.log(data);
         });
