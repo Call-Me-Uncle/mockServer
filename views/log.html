@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <button type="button" name="button">登录</button>
+    <script type="text/javascript">
+
+      $('button').click(function(){
+        $.post("/scity",{
+          type:'ssv002'
+
+        },function(data,status){
+          console.log(data);
+        });
+      });
+    </script>
+  </body>
+</html>

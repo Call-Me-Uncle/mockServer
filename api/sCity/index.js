@@ -13,7 +13,7 @@ router.post('/', function*() {
 });
 module.exports = router;
 const dealApi = {
-    'ssv002': function(info) {
+    'ssv001': function(info) {
 
     },
     'ssv002': function(info) {
