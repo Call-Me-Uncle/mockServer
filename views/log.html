@@ -5,6 +5,32 @@
     <meta charset="utf-8">
     <title></title>
     <script src="jquery.min.js" charset="utf-8"></script>
+    <style media="screen">
+
+      ul{
+        width: 1250px;
+        list-style:none;
+        word-break: break-all;
+        margin-left: -25px;
+      }
+      li{
+        border: 1px solid blue;
+        padding: 5px 10px;
+        overflow: hidden;
+      }
+      li .innerDiv {
+        display: inline-block;
+        width: 115px;
+        height: 80px;
+        padding: 0 8px;
+        overflow: hidden;
+        border-right: 1px solid black;
+        float: left;
+      }
+      li .innerDiv:last-child{
+        width: 300px;
+      }
+    </style>
 </head>
 
 <body>
@@ -29,14 +55,24 @@
         <input type="text" name="cmuuid" />
         <button type="button" name="button">确定</button>
     </form>
+    <div id='list'>
 
-    <div id = 'container'>
-      <table >
+            <ul>
+                <li><div class="innerDiv">qid</div>
+                    <div class="innerDiv">utype</div>
+                    <div class="innerDiv">category</div>
+                    <div class="innerDiv">cmuid</div>
+                    <div class="innerDiv">cmuuid</div>
+                    <div class="innerDiv">ctime</div>
+                    <div class="innerDiv">message</div>
+                </li>
 
-      </table>
+            </ul>
 
     </div>
+    <div id = 'container'></div>
     <script src="/dealData.js" charset="utf-8"></script>
+
     <script type="text/javascript">
         $.fn.serializeObject = function() {
             var o = {};
@@ -72,18 +108,14 @@
               var inner = '';
 
               $.each(val, function (key, val) {
-                inner += '<td>'+val+'</td>';
+                inner += '<div class="innerDiv">'+val+'</div>';
               });
-              tr += '<tr>'+inner+'</tr>';
+              tr += '<li>'+inner+'</li>';
 
             });
-            str = '<table>'+tr+'</table>';
+            str = '<ul width=100%;>'+tr+'</ul>';
           }
           $('#container').html(str);
-          $('td').css({
-            height: '100px',
-            width: '70px'
-          })
       }
     </script>
 
