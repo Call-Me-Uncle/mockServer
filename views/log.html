@@ -6,17 +6,46 @@
     <script src="jquery.min.js" charset="utf-8"></script>
   </head>
   <body>
-    <button type="button" name="button">登录</button>
-    <script type="text/javascript">
 
-      $('button').click(function(){
-        $.post("/scity",{
-          type:'ssv002'
+        <form id = "checkinfo">
+            qid:
+            <input type="text" name="qid" /> utype:
+            <select name="utype">
+                <option value="">不选中</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+            category:
+            <select name="category">
+                <option value="">不选中</option>
+                <option value="api.request_server">api.return</option>
+                <option value="api.post">api.post</option>
+                <option value="api.return">api.return</option>
+            </select>
+            cmuid:
+            <input type="text" name="cmuid" />
+            cmuuid:
+            <input type="text" name="cmuuid" />
+            <button type="button" name="button">确定</button>
+        </form>
+        <script type="text/javascript">
 
-        },function(data,status){
-          console.log(data);
-        });
-      });
-    </script>
+
+            $('button').click(function() {
+              var data = $('#checkinfo').serializeArray();
+              console.log(data);
+
+                $.post("/Log",
+                {
+                    data:data
+
+                }, function(data, status) {
+                    console.log(data);
+                });
+
+
+            });
+        </script>
+
   </body>
 </html>
