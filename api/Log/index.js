@@ -7,7 +7,21 @@ let error = {
     error_str: ''
 }
 router.post('/', function*() {
-  let str = `select qid, utype, category, cmuid, cmuuid, ctime, message from log_api where qid='1466737980681'`;
+
+  let reqData = this.request.body;
+
+  let whereStr = '';
+  _.each(reqData, function (val ,key) {
+
+    if(key === 'utype'){
+      val = parseInt(val);
+    }else {
+      val = `'${val}'`;
+    }
+    whereStr += `${key}=${val} and `;
+  });
+  whereStr = whereStr.substring(0,whereStr.length-5);
+  let str = `select qid, utype, category, cmuid, cmuuid, ctime, message from log_api where ${whereStr}`;
   // log_api
   let res = yield sql.query(str);
   if(res.length){

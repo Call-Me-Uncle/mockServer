@@ -33,31 +33,26 @@
         $.fn.serializeObject = function() {
             var o = {};
             var a = this.serializeArray();
-            $.each(a, function() {
-                if (o[this.name] !== undefined) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
-                    }
-                    o[this.name].push(this.value || '');
-                } else {
-                    o[this.name] = this.value || '';
-                }
+            var empty = true;
+            $.each(a, function(key, val) {
+              (val.value || val.value === 0) && (o[val.name] = val.value) && (empty = false);
             });
-            return o;
+            return {
+              data: o,
+              empty: empty
+            };
         };
         $('button').click(function() {
             var data = $('#checkinfo').serializeObject();
-          //  console.log(data);
-            if (data.qid == data.utype == data.category == data.cmuid == data.cmuuid == '') {
-                alert("请重新输入");
-            } else {
-                $.post("/Log", {
-                    data: JSON.stringify(data)
-
-                }, function(data, status) {
-                    console.log(data);
-                });
+            if(data.empty){
+              alert("请重新输入");
             }
+            else{
+              $.post("/Log", data.data, function(data, status) {
+                  console.log(data);
+              });
+            }
+
 
         });
     </script>
