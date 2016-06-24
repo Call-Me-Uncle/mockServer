@@ -21,7 +21,7 @@ router.post('/', function*() {
     whereStr += `${key}=${val} and `;
   });
   whereStr = whereStr.substring(0,whereStr.length-5);
-  let str = `select qid, utype, category, cmuid, cmuuid, ctime, message from log_api where ${whereStr}`;
+  let str = `select qid, utype, category, cmuid, cmuuid, ctime, message from log_api where ${whereStr} limit 0,30`;
   // log_api
   let res = yield sql.query(str);
   if(res.length){
