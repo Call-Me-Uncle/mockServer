@@ -7,7 +7,7 @@ const bodyParser = require('koa-bodyparser');
 
 const logger = require('koa-logger');
 const responseTime = require('koa-response-time');
-
+const sqlPool = require('./model/mysql');
 const routers = require('./routers');
 
 app.use(cors());

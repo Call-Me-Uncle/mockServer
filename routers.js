@@ -1,5 +1,4 @@
 const router = require('koa-router')();
-
 const buLog = require('./log');
 const glRouter = require('./api/gl');
 const userRouter = require('./api/user');
@@ -23,4 +22,9 @@ module.exports = function (app) {
     yield this.render('log');
   });
   app.use(router.routes());
+
+
+
+
+
 };
