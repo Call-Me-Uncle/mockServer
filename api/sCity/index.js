@@ -23,31 +23,31 @@ const dealApi = {
             list: [{
                 select: 0,
                 mode: 2,
-                name: '巴黎圣母院'
+                name: '巴黎圣母院',
                 id: 'v204366',
                 img: 'v204366_1.jpg'
             }, {
                 select: 0,
                 mode: 2,
-                name: '艾菲尔铁塔'
+                name: '艾菲尔铁塔',
                 id: 'v202283',
                 img: 'v202283_1.jpg'
             }, {
                 select: 0,
                 mode: 2,
-                name : '景点1'
+                name : '景点1',
                 id: 'v201045',
                 img: 'v201045_1.jpg'
             }, {
                 select: 0,
                 mode: 2,
-                name : '景点2'
+                name : '景点2',
                 id: 'v202466',
                 img: 'v202466_2.jpg'
             }, {
                 select: 0,
                 mode: 2,
-                name: '景点3'
+                name: '景点3',
                 id: 'v202698',
                 img: 'v202698_2.jpg'
             }]
