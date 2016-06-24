@@ -3,38 +3,78 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <script src="jquery.min.js" charset="utf-8"></script>
-    <style media="screen">
+    <title>日志查询系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script src="/jquery.min.js" charset="utf-8"></script>
+    <script src="/js/bootstrap.min.js" charset="utf-8"></script>
 
-      ul{
-        width: 1250px;
-        list-style:none;
-        word-break: break-all;
-        margin-left: -25px;
-      }
-      li{
-        border: 1px solid blue;
-        padding: 5px 10px;
-        overflow: hidden;
-      }
-      li .innerDiv {
-        display: inline-block;
-        width: 115px;
-        height: 80px;
-        padding: 0 8px;
-        overflow: hidden;
-        border-right: 1px solid black;
-        float: left;
-      }
-      li .innerDiv:last-child{
-        width: 300px;
-        cursor: pointer;
-      }
+    <style media="screen">
+        ul {
+            width: 1250px;
+            list-style: none;
+            word-break: break-all;
+            margin-left: -25px;
+        }
+
+        li {
+            border: 1px solid blue;
+            padding: 5px 10px;
+            overflow: hidden;
+        }
+
+        li .innerDiv {
+            display: inline-block;
+            width: 110px;
+            height: 80px;
+            padding: 0 8px;
+            overflow: hidden;
+            border-right: 1px solid black;
+            float: left;
+        }
+
+        li .innerDiv:last-child {
+            width: 300px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">详细信息</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+              <div class="row-fluid">
+                  <!--左侧-->
+                  <div class="col-sm-5" style="padding:0;">
+                      <textarea class="json-src" placeholder="在此输入json字符串或XML字符串" class="form-control" style="height:450px;padding:10px;border:solid 1px #ddd;border-radius:0;resize: none; outline:none;width: 100%"></textarea>
+                  </div>
+
+                  <!--右侧-->
+                  <div class="col-sm-7" style="padding:0;">
+                      <div class="json-target" style="background:#fff;height:450px;padding:10px;border:solid 1px #ddd;border-left: 0;border-radius:0;resize: none;overflow: auto; outline:none;"></div>
+                  </div>
+
+                  <br style="clear:both;">
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
     <form id="checkinfo">
         qid:
@@ -58,20 +98,21 @@
     </form>
     <div id='list'>
 
-            <ul>
-                <li><div class="innerDiv">qid</div>
-                    <div class="innerDiv">utype</div>
-                    <div class="innerDiv">category</div>
-                    <div class="innerDiv">cmuid</div>
-                    <div class="innerDiv">cmuuid</div>
-                    <div class="innerDiv">ctime</div>
-                    <div class="innerDiv">message</div>
-                </li>
+        <ul>
+            <li>
+                <div class="innerDiv">qid</div>
+                <div class="innerDiv">utype</div>
+                <div class="innerDiv">category</div>
+                <div class="innerDiv">cmuid</div>
+                <div class="innerDiv">cmuuid</div>
+                <div class="innerDiv">ctime</div>
+                <div class="innerDiv">message</div>
+            </li>
 
-            </ul>
+        </ul>
 
     </div>
-    <div id = 'container'></div>
+    <div id='container'></div>
     <script src="/dealData.js" charset="utf-8"></script>
 
     <script type="text/javascript">
@@ -80,49 +121,61 @@
             var a = this.serializeArray();
             var empty = true;
             $.each(a, function(key, val) {
-              (val.value || val.value === 0) && (o[val.name] = val.value) && (empty = false);
+                (val.value || val.value === 0) && (o[val.name] = val.value) && (empty = false);
             });
             return {
-              data: o,
-              empty: empty
+                data: o,
+                empty: empty
             };
         };
         $('button').click(function() {
             var data = $('#checkinfo').serializeObject();
-            if(data.empty){
-              alert("请重新输入");
-            }
-            else{
-              $.post("/Log", data.data, function(data, status) {
-                var finalData = dealData(data);
-                dataToDom(finalData);
-              });
+            if (data.empty) {
+                alert("请重新输入");
+            } else {
+                $.post("/Log", data.data, function(data, status) {
+                    var finalData = dealData(data);
+                    dataToDom(finalData);
+                });
             }
         });
+
         function dataToDom(finalData) {
-          var str = '';
-          if(typeof finalData === 'string') {
-            str = finalData;
-          }else{
-            var tr = '';
-            $.each(finalData, function (key, val) {
-              var inner = '';
+            var str = '';
+            if (typeof finalData === 'string') {
+                str = finalData;
+            } else {
+                var tr = '';
+                $.each(finalData, function(key, val) {
+                    var inner = '';
 
-              $.each(val, function (key, val) {
-                inner += '<div class="innerDiv">'+val+'</div>';
-              });
-              tr += '<li>'+inner+'</li>';
+                    $.each(val, function(key, val) {
+                        inner += '<div class="innerDiv">' + val + '</div>';
+                    });
+                    tr += '<li>' + inner + '</li>';
 
+                });
+                str = '<ul width=100%;>' + tr + '</ul>';
+            }
+            $('#container').html(str);
+
+            $('#container .innerDiv:last-child').on('click', function() {
+                var hello = this.innerHTML;
+                //hello = JSON.parse(hello);
+                console.log(hello);
+                $('.json-src').val(hello);
+                $('.json-src').keyup();
+                $('#myModal').modal();
             });
-            str = '<ul width=100%;>'+tr+'</ul>';
-          }
-          $('#container').html(str);
-          $('#container .innerDiv:last-child').on('click', function () {
-            
-          });
-      }
+        }
     </script>
 
+    <script src="/js/jsonTool/jquery.json.js"></script>
+    <script src="/js/jsonTool/jquery.xml2json.js"></script>
+    <script src="/js/jsonTool/jquery.json2xml.js"></script>
+    <script src="/js/jsonTool/json2.js"></script>
+    <script src="/js/jsonTool/jsonlint.js"></script>
+    <script src="/js/jsonTool/jsonFormat.js"></script>
 </body>
 
 </html>
