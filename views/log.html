@@ -20,7 +20,7 @@
         category:
         <select name="category">
             <option value="">不选中</option>
-            <option value="api.request_server">api.return</option>
+            <option value="api.request_server">api.request_server</option>
             <option value="api.post">api.post</option>
             <option value="api.return">api.return</option>
         </select>
@@ -29,6 +29,14 @@
         <input type="text" name="cmuuid" />
         <button type="button" name="button">确定</button>
     </form>
+
+    <div id = 'container'>
+      <table >
+
+      </table>
+
+    </div>
+    <script src="/dealData.js" charset="utf-8"></script>
     <script type="text/javascript">
         $.fn.serializeObject = function() {
             var o = {};
@@ -49,12 +57,34 @@
             }
             else{
               $.post("/Log", data.data, function(data, status) {
-                  console.log(data);
+                var finalData = dealData(data);
+                dataToDom(finalData);
               });
             }
-
-
         });
+        function dataToDom(finalData) {
+          var str = '';
+          if(typeof finalData === 'string') {
+            str = finalData;
+          }else{
+            var tr = '';
+            $.each(finalData, function (key, val) {
+              var inner = '';
+
+              $.each(val, function (key, val) {
+                inner += '<td>'+val+'</td>';
+              });
+              tr += '<tr>'+inner+'</tr>';
+
+            });
+            str = '<table>'+tr+'</table>';
+          }
+          $('#container').html(str);
+          $('td').css({
+            height: '100px',
+            width: '70px'
+          })
+      }
     </script>
 
 </body>
