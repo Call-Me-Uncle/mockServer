@@ -47,20 +47,19 @@
         };
         $('button').click(function() {
             var data = $('#checkinfo').serializeObject();
-            if(data.qid == data.utype == data.category == data.cmuid == data.cmuuid ==''){
-              alert("请重新输入");
-            }
-            else{
-            $.post("/Log", {
-                data: JSON.stringify(data)
+          //  console.log(data);
+            if (data.qid == data.utype == data.category == data.cmuid == data.cmuuid == '') {
+                alert("请重新输入");
+            } else {
+                $.post("/Log", {
+                    data: JSON.stringify(data)
 
-            }, function(data, status) {
-                console.log(data);
-            });
-}
+                }, function(data, status) {
+                    console.log(data);
+                });
+            }
 
         });
-
     </script>
 
 </body>
