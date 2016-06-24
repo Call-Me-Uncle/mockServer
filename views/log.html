@@ -29,6 +29,7 @@
       }
       li .innerDiv:last-child{
         width: 300px;
+        cursor: pointer;
       }
     </style>
 </head>
@@ -116,6 +117,9 @@
             str = '<ul width=100%;>'+tr+'</ul>';
           }
           $('#container').html(str);
+          $('#container .innerDiv:last-child').on('click', function () {
+            
+          });
       }
     </script>
 
