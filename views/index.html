@@ -9,15 +9,36 @@
 </head>
 
 <body>
+  <img src="" alt="">
+  <input type="file" onchange="previewFile()">
 
+  <div contenteditable='true'>
+    <img class='area' src=''>
+  </div>
+  <div>asdadadadda</div>
   <button type="button" name="button">登录</button>
   <script type="text/javascript">
+  document.addEventListener('paste', function(e){
+    // console.log(e.clipboardData.getData('text/html'));
+    console.log(e.clipboardData);
+    console.log(e.clipboardData.types);
+    console.log(e.clipboardData.getAsFile());
+    e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
+  });
 
+    function previewFile() {
+      var file = document.querySelector('input[type=file]').files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.addEventListener('load', function () {
+        document.querySelector('img').src = reader.result;
+        document.querySelector('.area').src = reader.result;
+      });
+    }
 
     $('button').click(function(){
       $.post("/scity",{
-
-
+        type: 'ssv005'
       },function(data,status){
         console.log(data);
       });
