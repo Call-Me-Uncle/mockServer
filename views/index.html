@@ -18,15 +18,17 @@
   <div>asdadadadda</div>
   <button type="button" name="button">登录</button>
   <script type="text/javascript">
-  document.addEventListener('paste', function(e){
-    // console.log(e.clipboardData.getData('text/html'));
-    console.log(e.clipboardData);
-    console.log(e.clipboardData.types);
-    console.log(e.clipboardData.getAsFile());
-    e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
-  });
+    document.addEventListener('paste', function(e){
+
+      // console.log(e.clipboardData.getData('text/html'));
+      console.log(e.clipboardData);
+      console.log(e.clipboardData.types);
+      console.log(e.clipboardData.getAsFile());
+      e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
+    });
 
     function previewFile() {
+      alert(1);
       var file = document.querySelector('input[type=file]').files[0];
       var reader = new FileReader();
       reader.readAsDataURL(file);
@@ -38,7 +40,7 @@
 
     $('button').click(function(){
       $.post("/scity",{
-        type: 'ssv005'
+        type: 'ssv004'
       },function(data,status){
         console.log(data);
       });
