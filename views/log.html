@@ -142,14 +142,15 @@
         };
         $('button').click(function() {
             var data = $('#checkinfo').serializeObject();
-            if (data.empty) {
-                alert("请重新输入");
-            } else {
+            //不做空查询限制，空也可查询
+            // if (data.empty) {
+            //     alert("请重新输入");
+            // } else {
                 $.post("/Log", data.data, function(data, status) {
                     var finalData = dealData(data);
                     dataToDom(finalData);
                 });
-            }
+            // }
         });
 
         function dataToDom(finalData) {
