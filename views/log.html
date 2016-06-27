@@ -40,6 +40,12 @@
         .modal-dialog{
           width: 1100px;
         }
+        p{
+          text-align: center;
+          color: red;
+          font-size: 25px;
+          margin-top:20px;
+        }
     </style>
 </head>
 
@@ -78,15 +84,17 @@
 
 
 
-
     <form id="checkinfo" style ="padding:20px">
         qid:
-        <input type="text" name="qid" /> utype:
+        <input type="text" name="qid" />
+        utype:
         <select name="utype">
             <option value="">不选中</option>
             <option value="0">0</option>
             <option value="1">1</option>
         </select>
+        type:
+          <input type="text" name="type" />
         category:
         <select name="category">
             <option value="">不选中</option>
@@ -105,6 +113,7 @@
             <li>
                 <div class="innerDiv">qid</div>
                 <div class="innerDiv">utype</div>
+                <div class="innerDiv">type</div>
                 <div class="innerDiv">category</div>
                 <div class="innerDiv">cmuid</div>
                 <div class="innerDiv">cmuuid</div>
@@ -146,7 +155,7 @@
         function dataToDom(finalData) {
             var str = '';
             if (typeof finalData === 'string') {
-                str = finalData;
+                str = '<p>'+finalData+'</p>';
             } else {
                 var tr = '';
                 $.each(finalData, function(key, val) {
