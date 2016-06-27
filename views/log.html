@@ -163,11 +163,14 @@
         });
 
         function dataToDom(finalData) {
+            var showpages = '';
             var str = '';
             var pages;
             if (typeof finalData === 'string') {
                 str = '<p>' + finalData + '</p>';
                 pages = 0;
+                showpages = '';
+                $('#showpages').html(showpages);
 
             } else {
                 var total = finalData.total;
@@ -177,7 +180,7 @@
                     pages = 10
                 };
                 var tr = '';
-                var showpages = `查询结果共有${pages}页,每页显示30条数据，输入页数即可查看对应数据`;
+                showpages = `查询结果共有${pages}页,每页显示30条数据，输入页数即可查看对应数据`;
                 $('#showpages').html(showpages);
                 $.each(finalData, function(key, val) {
                     var inner = '';
