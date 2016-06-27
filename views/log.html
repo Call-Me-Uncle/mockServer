@@ -109,6 +109,11 @@
             <option value="api.post">api.post</option>
             <option value="api.return">api.return</option>
         </select>
+        env:
+        <select name="env">
+            <option value="dev">dev</option>
+            <option value="test">test</option>
+        </select>
         cmuid:
         <input type="text" name="cmuid" /> cmuuid:
         <input type="text" name="cmuuid" /> 页数:
@@ -176,9 +181,6 @@
                 var total = finalData.total;
                 finalData = finalData.data;
                 pages = Math.ceil(total / 30);
-                if (pages > 10) {
-                    pages = 10
-                };
                 var tr = '';
                 showpages = `查询结果共有${pages}页,每页显示30条数据，输入页数即可查看对应数据`;
                 $('#showpages').html(showpages);

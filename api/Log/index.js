@@ -17,7 +17,7 @@ router.post('/', function*() {
 
         if (key === 'page') {
             sqlStart = (parseInt(val) - 1) * 30;
-        } else {
+        } else if (key === 'env') {} else {
             if (key === 'utype') {
                 val = parseInt(val);
             } else {
