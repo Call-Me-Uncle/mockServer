@@ -21,6 +21,9 @@ module.exports = function (app) {
   router.get('/showlog',function *(){
     yield this.render('log');
   });
+  router.get('/test',function *(){
+    yield this.render('test');
+  })
   app.use(router.routes());
 
 
