@@ -1,5 +1,6 @@
 /*
-use : x.create(qStr); x.query(qStr);
+use : x.create(qStr, env); x.query(qStr, env);
+env 为可选参数
 如果需要扩展sql操作，写在setActions中
  */
 
