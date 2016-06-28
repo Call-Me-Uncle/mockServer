@@ -49,6 +49,13 @@
             color: red;
         }
 
+        #environment {
+            height: 40px;
+            border: 1px;
+            padding-bottom: 5px;
+            padding-left: -5px;
+        }
+
         p {
             text-align: center;
             color: red;
@@ -94,6 +101,13 @@
 
 
     <form id="checkinfo" style="padding:20px">
+        <div id="environment">
+            environment:
+            <select name="env">
+                <option value="dev">dev</option>
+                <option value="test">test</option>
+            </select>
+        </div>
         qid:
         <input type="text" name="qid" /> utype:
         <select name="utype">
@@ -109,11 +123,7 @@
             <option value="api.post">api.post</option>
             <option value="api.return">api.return</option>
         </select>
-        env:
-        <select name="env">
-            <option value="dev">dev</option>
-            <option value="test">test</option>
-        </select>
+
         cmuid:
         <input type="text" name="cmuid" /> cmuuid:
         <input type="text" name="cmuuid" /> 页数:
