@@ -4,9 +4,10 @@ use : x.create(qStr); x.query(qStr);
  */
 
 
-const sqlPool = require(`../mysql`);
+const pool = require(`../mysql`).pool;
+const testPool = require('../mysql').testPool;
 const _ = require('lodash');
-
+let sqlPool = pool;
 const promisify = function (fn, qStr) {
   const promise = new Promise((resolve, reject) => {
     fn(resolve, reject, qStr);
@@ -34,9 +35,13 @@ const setActions = {
 // 组装 promisefy的方法，并绑定到 sqlActions 上；
 const sqlActions = {};
 _.each(setActions, function (fn, action) {
-  sqlActions[action] = function (qStr) {
+  sqlActions[action] = function (qStr, env) {
+    setSqlEnv(env);
     return promisify(fn, qStr);
   };
 });
-
+function setSqlEnv(env) {
+  console.log('env', env);
+  sqlPool = env === 'test' ? testPool : pool;
+}
 module.exports = sqlActions;

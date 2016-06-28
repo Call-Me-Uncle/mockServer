@@ -7,7 +7,9 @@ const bodyParser = require('koa-bodyparser');
 
 const logger = require('koa-logger');
 const responseTime = require('koa-response-time');
-const sqlPool = require('./model/mysql');
+//初始化sql
+const sqlPool = require('./model/mysql').pool;
+const testSqlPool = require('./model/mysql').testPool;
 const routers = require('./routers');
 
 app.use(cors());
