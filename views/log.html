@@ -170,10 +170,17 @@
             // if (data.empty) {
             //     alert("请重新输入");
             // } else {
-            $.post("/Log", data.data, function(data, status) {
-                var finalData = dealData(data);
-                dataToDom(finalData);
-            });
+            let pages = data.data.page;
+            var type = "^[0-9]*[1-9][0-9]*$";
+            var re = new RegExp(type);
+            if (pages && pages.match(re) == null) {
+                alert("页数必须为正整数，请重新输入")
+            } else {
+                $.post("/Log", data.data, function(data, status) {
+                    var finalData = dealData(data);
+                    dataToDom(finalData);
+                });
+            }
             // }
         });
 
