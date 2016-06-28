@@ -6,10 +6,11 @@ let error = {
 router.post('/', function*() {
     let id = this.request.body.type;
     let info = this.request.body;
+    info.query = info.query ? JSON.parse(info.query) : info.query;
     let res = dealApi[id].call(this, info);
 
     // info.query && info.query = JSON.parse(info.query);
-    info.query = info.query ? JSON.parse(info.query) : info.query;
+
     this.body = res;
 });
 module.exports = router;
@@ -324,6 +325,7 @@ const dealApi = {
     },
     ssv005: function(info) {
         var path = info.query.ridx;
+
 
         return {
             "data": {
