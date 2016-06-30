@@ -200,7 +200,7 @@
                 finalData = finalData.data;
                 pages = Math.ceil(total / 30);
                 var tr = '';
-                showpages = `查询结果共有${pages}页,每页显示30条数据，输入页数即可查看对应数据`;
+                showpages = `查询结果共有${pages}页,每页显示30条数据，输入页数即可查看对应数据<br />gsv007例外，每页2条`;
                 $('#showpages').html(showpages);
                 $.each(finalData, function(key, val) {
                     var inner = '';

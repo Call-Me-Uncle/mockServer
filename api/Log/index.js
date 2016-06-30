@@ -13,7 +13,7 @@ router.post('/', function*() {
     let whereStr = '';
     let sqlStart = 0;
     let env;
-
+    let listLen = 30;
     _.each(reqData, function(val, key) {
 
         if (key === 'page') {
@@ -28,10 +28,10 @@ router.post('/', function*() {
             }
             whereStr += `${key}=${val} and `;
         }
-
+        key === 'type' && val === `'gsv007'` && (listLen = 2)
     });
     whereStr && (whereStr = `where ${whereStr.substring(0,whereStr.length-5)}`);
-    let str = `select qid, utype, type, category, cmuid, cmuuid, ctime, message from log_api ${whereStr} order by log_time desc limit ${sqlStart},30`;
+    let str = `select qid, utype, type, category, cmuid, cmuuid, ctime, message from log_api ${whereStr} order by log_time desc limit ${sqlStart},${listLen}`;
     let lenStr = `select count(id) from log_api ${whereStr}`;
 
 // log_api
