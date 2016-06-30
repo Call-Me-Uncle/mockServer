@@ -1,6 +1,6 @@
 module.exports = {
   mysqlConfig: {
-    connectionLimit : 2,
+    connectionLimit : 10,
     host            : '10.10.222.19',
     user            : 'writer',
     password        : 'miaoji1109',
